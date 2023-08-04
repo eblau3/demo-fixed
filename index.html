@@ -5,47 +5,65 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: unset;
+      padding: unset;
+    }
+    img {
+      width: 100%;
+    }
+    .billboard {
+      z-index: 0;
+      position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+    @media screen and (max-width: 1024px){
+      .billboard {
+        aspect-ratio: 16 / 16;
+      }
+    }
+    .billboard .swiper-slide > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .billboard__acc {
+      z-index: 1;
+      position: absolute;
+      bottom: 2.5%;
+      left: 2.5%;
+      width: max(100px, 20%);
+      height: auto;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 <body>
-
-  <div>
-    <img src="https://placehold.jp/1920x1080.png?text=First%20View">
+    
+  <div class="swiper billboard js-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://placehold.jp/1921x1080.png"></div>
+      <div class="swiper-slide"><img src="https://placehold.jp/1922x1080.png"></div>
+      <div class="swiper-slide"><img src="https://placehold.jp/1923x1080.png"></div>
+    </div>
+    <div class="billboard__acc"><img src="https://placehold.jp/3d4070/ffffff/500x500.png"></div>
   </div>
 
-  <main>
-    <div class="acc"><div class="acc__item"></div></div>
-    <div class="container">
-      <section>
-        <h1>Example Sub-Title</h1>
-        <figure><img src="https://placehold.jp/640x380.png"></figure>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-      </section>
-      <section>
-        <h1>Example Sub-Title</h1>
-        <figure><img src="https://placehold.jp/640x380.png"></figure>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-      </section>
-      <section>
-        <h1>Example Sub-Title</h1>
-        <figure><img src="https://placehold.jp/640x380.png"></figure>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-      </section>
-      <section>
-        <h1>Example Sub-Title</h1>
-        <figure><img src="https://placehold.jp/640x380.png"></figure>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae minus incidunt excepturi ipsam! Consequuntur, iste? Nulla, enim iste minima repudiandae itaque quisquam doloremque amet nam tempora, repellat animi aut eum.</p>
-      </section>
-    </div>
-  </main>
-
+  <script>
+    const homeFloorSwiper = new Swiper('.js-swiper', {
+      slidesPerView: 1,
+      loop: true,
+      effect: 'fade',
+      speed: 600,
+      autoplay: {
+        delay: 3000
+      }
+    });
+  </script>
 </body>
 </html>
